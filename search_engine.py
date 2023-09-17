@@ -47,7 +47,8 @@ steeming = {
 }
 
 newDocs = []
-for document in documents:
+
+for i, document in enumerate(documents, start=1):
     words = document.split()
     stemmedWords = []
 
@@ -58,6 +59,7 @@ for document in documents:
             stemmedWords.append(word)
     newDoc = ' '.join(stemmedWords)
     newDocs.append(newDoc)
+    print("Stemmed d" + str(i) + ":", newDoc)
 
 documents = newDocs
 
