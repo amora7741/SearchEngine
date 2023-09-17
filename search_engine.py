@@ -25,6 +25,19 @@ with open('collection.csv', 'r') as csvfile:
 #Conduct stopword removal.
 #--> add your Python code here
 stopWords = {'I', 'and', 'She', 'They', 'her', 'their'}
+newDocs = []
+
+for document in documents:
+    words = document.split()
+    filtered_words = []
+    for word in words:
+        if word not in stopWords:
+            filtered_words.append(word)
+    new_document = ' '.join(filtered_words)
+    newDocs.append(new_document)
+    
+documents = newDocs
+
 
 #Conduct stemming.
 #--> add your Python code here
