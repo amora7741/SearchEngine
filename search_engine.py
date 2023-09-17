@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------
-# AUTHOR: your name
-# FILENAME: title of the source file
-# SPECIFICATION: description of the program
+# AUTHOR: Alejandro Mora-Lopez
+# FILENAME: search_engine.py
+# SPECIFICATION: This is a simple program that outputs the precision and recall of a search engine given a query.
 # FOR: CS 4250- Assignment #1
 # TIME SPENT: how long it took you to complete the assignment
 #-----------------------------------------------------------*/
