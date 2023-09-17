@@ -33,11 +33,10 @@ for document in documents:
     for word in words:
         if word not in stopWords:
             filtered_words.append(word)
-    new_document = ' '.join(filtered_words)
-    newDocs.append(new_document)
+    newDoc = ' '.join(filtered_words)
+    newDocs.append(newDoc)
     
 documents = newDocs
-
 
 #Conduct stemming.
 #--> add your Python code here
@@ -46,6 +45,21 @@ steeming = {
   "dogs": "dog",
   "loves": "love",
 }
+
+newDocs = []
+for document in documents:
+    words = document.split()
+    stemmedWords = []
+
+    for word in words:
+        if word in steeming:
+            stemmedWords.append(steeming[word])
+        else:
+            stemmedWords.append(word)
+    newDoc = ' '.join(stemmedWords)
+    newDocs.append(newDoc)
+
+documents = newDocs
 
 #Identify the index terms.
 #--> add your Python code here
