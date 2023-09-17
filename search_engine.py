@@ -63,7 +63,8 @@ documents = newDocs
 
 #Identify the index terms.
 #--> add your Python code here
-terms = []
+
+terms = list(set(' '.join(documents).split()))
 
 #Build the tf-idf term weights matrix.
 #--> add your Python code here
