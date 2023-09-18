@@ -73,9 +73,16 @@ terms = sorted(list(set(' '.join(documents).split())))
 #--> add your Python code here
 docMatrix = []
 
+idf = []
+for term in terms:
+    count = 0
+    for doc in documents:
+        if term in doc.split():
+            count += 1
+    idf.append(math.log(len(documents) / count, 10))
+
 for doc in documents:
     tf = [doc.split().count(term) / len(doc.split()) for term in terms]
-    print(tf)
 
 #Calculate the document scores (ranking) using document weigths (tf-idf) calculated before and query weights (binary - have or not the term).
 #--> add your Python code here
