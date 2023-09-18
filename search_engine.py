@@ -10,6 +10,7 @@
 
 #importing some Python libraries
 import csv
+import math
 
 documents = []
 labels = []
@@ -66,11 +67,15 @@ documents = newDocs
 #Identify the index terms.
 #--> add your Python code here
 
-terms = list(set(' '.join(documents).split()))
+terms = sorted(list(set(' '.join(documents).split())))
 
 #Build the tf-idf term weights matrix.
 #--> add your Python code here
 docMatrix = []
+
+for doc in documents:
+    tf = [doc.split().count(term) / len(doc.split()) for term in terms]
+    print(tf)
 
 #Calculate the document scores (ranking) using document weigths (tf-idf) calculated before and query weights (binary - have or not the term).
 #--> add your Python code here
