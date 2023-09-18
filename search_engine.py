@@ -85,25 +85,36 @@ for doc in documents:
     tf = [doc.split().count(term) / len(doc.split()) for term in terms]
     docMatrix.append([tf[i] * idf[i] for i in range(len(tf))])
 
-print(docMatrix)
+print("\nTf-idf weights:")
+print('doc', end='\t')
+for term in terms:
+    print(term, end='\t\t')
+print()
+
+# Print the tf-idf matrix
+for i, docVector in enumerate(docMatrix):
+    print("d" + str(i+1), end='\t')
+    for j in range(len(docVector)):
+        print(f"{docVector[j]:.4f}", end='\t\t')
+    print()
 
 #Calculate the document scores (ranking) using document weigths (tf-idf) calculated before and query weights (binary - have or not the term).
 #--> add your Python code here
 docScores = []
 
 query = "cat and dogs"
+print(f"\nUser query: {query}\n")
 query = ' '.join(word for word in query.split() if word not in stopWords)
 query = ' '.join(steeming[word] if word in steeming else word for word in query.split())
 
-print(query)
 queryVector = [1 if term in query.split() else 0 for term in terms]
 
 for docVector in docMatrix:
     score = sum([queryVector[i] * docVector[i] for i in range(len(queryVector))])
     docScores.append(score)
 
-print(docScores)
-
+for i, docScore in enumerate(docScores):
+    print(f"Doc {i + 1} score: {docScore:.4f}")
 #Calculate and print the precision and recall of the model by considering that the search engine will return all documents with scores >= 0.1.
 #--> add your Python code here
 
