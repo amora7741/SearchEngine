@@ -91,5 +91,18 @@ print(docMatrix)
 #--> add your Python code here
 docScores = []
 
+query = "cat and dogs"
+query = ' '.join(word for word in query.split() if word not in stopWords)
+query = ' '.join(steeming[word] if word in steeming else word for word in query.split())
+
+print(query)
+queryVector = [1 if term in query.split() else 0 for term in terms]
+
+for docVector in docMatrix:
+    score = sum([queryVector[i] * docVector[i] for i in range(len(queryVector))])
+    docScores.append(score)
+
+print(docScores)
+
 #Calculate and print the precision and recall of the model by considering that the search engine will return all documents with scores >= 0.1.
 #--> add your Python code here
