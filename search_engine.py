@@ -83,6 +83,9 @@ for term in terms:
 
 for doc in documents:
     tf = [doc.split().count(term) / len(doc.split()) for term in terms]
+    docMatrix.append([tf[i] * idf[i] for i in range(len(tf))])
+
+print(docMatrix)
 
 #Calculate the document scores (ranking) using document weigths (tf-idf) calculated before and query weights (binary - have or not the term).
 #--> add your Python code here
