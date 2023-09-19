@@ -132,5 +132,5 @@ misses = len(set(relevantDocs) - set(retrievedDocs))
 precision = hits / (hits + noise)
 recall = hits / (hits + misses)
 
-print(f"\nPrecision: {hits} hits / ({hits} hits + {noise} noise) = {precision}")
-print(f"Recall: {hits} hits / ({hits} hits + {misses} misses) = {recall}")
+print(f"\nPrecision: {hits} hits / ({hits} hits + {noise} noise) = {precision * 100}%")
+print(f"Recall: {hits} hits / ({hits} hits + {misses} misses) = {recall * 100}%")
